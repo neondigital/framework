@@ -99,7 +99,7 @@ class FileLoader implements LoaderInterface {
 	 */
 	protected function mergeEnvironment(array $items, $file)
 	{
-		return config_merge($items, $this->files->getRequire($file));
+		return array_merge($items, $this->files->getRequire($file));
 	}
 
 	/**
@@ -159,7 +159,7 @@ class FileLoader implements LoaderInterface {
 
 		if ($this->files->exists($path = $this->defaultPath.'/'.$file))
 		{
-			$items = config_merge(
+			$items = array_merge(
 				$items, $this->getRequire($path)
 			);
 		}
@@ -171,7 +171,7 @@ class FileLoader implements LoaderInterface {
 
 		if ($this->files->exists($path))
 		{
-			$items = config_merge(
+			$items = array_merge(
 				$items, $this->getRequire($path)
 			);
 		}
